@@ -1,0 +1,232 @@
+@prefix : <http://rpcw.di.uminho.pt/2024/historia/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://rpcw.di.uminho.pt/2024/historia/> .
+
+<http://rpcw.di.uminho.pt/2024/historia> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/historia/Contrata
+:Contrata rdf:type owl:ObjectProperty ;
+          rdfs:domain :Agricultor ;
+          rdfs:range :TrabalhadorTemporario .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Cultiva
+:Cultiva rdf:type owl:ObjectProperty ;
+         rdfs:domain :Agricultor ;
+         rdfs:range :Produto .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Possui
+:Possui rdf:type owl:ObjectProperty ;
+        rdfs:domain :Agricultor ;
+        rdfs:range :Animal .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Protege
+:Protege rdf:type owl:ObjectProperty ;
+         rdfs:domain :Animal ;
+         rdfs:range :Fazenda .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Troca
+:Troca rdf:type owl:ObjectProperty ;
+       rdfs:domain :Agricultor ;
+       rdfs:range :Produto .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Usa
+:Usa rdf:type owl:ObjectProperty ;
+     rdfs:domain :Agricultor ;
+     rdfs:range :Trator .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Vende
+:Vende rdf:type owl:ObjectProperty ;
+       rdfs:domain :Agricultor ;
+       rdfs:range :Feira .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/historia/locFazenda
+:locFazenda rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Fazenda ;
+            rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/locFeira
+:locFeira rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Feira ;
+          rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/nomeAnimal
+:nomeAnimal rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Animal ;
+            rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/nomePessoa
+:nomePessoa rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Pessoa ;
+            rdfs:range xsd:string .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/tipoProduto
+:tipoProduto rdf:type owl:DatatypeProperty ;
+             rdfs:domain :Produto ;
+             rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/historia/Agricultor
+:Agricultor rdf:type owl:Class ;
+            rdfs:subClassOf :Pessoa .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Animal
+:Animal rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Fazenda
+:Fazenda rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Feira
+:Feira rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Pessoa
+:Pessoa rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Produto
+:Produto rdf:type owl:Class .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/TrabalhadorTemporario
+:TrabalhadorTemporario rdf:type owl:Class ;
+                       rdfs:subClassOf :Pessoa .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Trator
+:Trator rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://rpcw.di.uminho.pt/2024/historia#Alberto_e_Romeu
+:Alberto_e_Romeu rdf:type owl:NamedIndividual ,
+                          :TrabalhadorTemporario .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Ana
+:Ana rdf:type owl:NamedIndividual ,
+              :Pessoa ;
+     :nomePessoa "Ana" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Pedro
+:Pedro rdf:type owl:NamedIndividual ,
+                :Pessoa ;
+       :nomePessoa "Pedro" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/Rex
+:Rex rdf:type owl:NamedIndividual ;
+     :Protege :fazendaJoao ;
+     :nomeAnimal "Rex" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/SrCarlos
+:SrCarlos rdf:type owl:NamedIndividual ;
+          :Cultiva :alfaces ,
+                   :cenouras ,
+                   :tomates ;
+          :Vende :feiraSaoJose ;
+          :nomePessoa "Carlos" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/SrJoao
+:SrJoao rdf:type owl:NamedIndividual ,
+                 :Agricultor ;
+        :Contrata :Alberto_e_Romeu ;
+        :Cultiva :bananas ,
+                 :laranjas ,
+                 :macas ;
+        :Possui :Rex ;
+        :Troca :alfaces ,
+               :cenouras ,
+               :tomates ;
+        :Usa :tratorJoao ;
+        :Vende :feiraSaoJose ;
+        :nomePessoa "João" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/SraMaria
+:SraMaria rdf:type owl:NamedIndividual ,
+                   :Pessoa ;
+          :nomePessoa "Maria" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/alfaces
+:alfaces rdf:type owl:NamedIndividual ;
+         :tipoProduto "alfaces" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/bananas
+:bananas rdf:type owl:NamedIndividual ;
+         :tipoProduto "bananas" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/cenouras
+:cenouras rdf:type owl:NamedIndividual ;
+          :tipoProduto "cenouras" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/fazendaJoao
+:fazendaJoao rdf:type owl:NamedIndividual ,
+                      :Fazenda ;
+             :locFazenda "São José" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/feiraSaoJose
+:feiraSaoJose rdf:type owl:NamedIndividual ;
+              :locFeira "São José" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/laranjas
+:laranjas rdf:type owl:NamedIndividual ;
+          :tipoProduto "laranjas" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/macas
+:macas rdf:type owl:NamedIndividual ;
+       :tipoProduto "macas" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/tomates
+:tomates rdf:type owl:NamedIndividual ;
+         :tipoProduto "tomates" .
+
+
+###  http://rpcw.di.uminho.pt/2024/historia/tratorJoao
+:tratorJoao rdf:type owl:NamedIndividual .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
