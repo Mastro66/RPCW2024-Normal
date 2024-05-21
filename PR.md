@@ -19,7 +19,7 @@ Foram adicionados 1 individuo que não constava no texto, mas era necessário pa
 Além do que é pedido no enunciado, realizei algumas alterações no json, devido a alguns nomes terem "` ' `" e outras excessões tinham um ponto final no fim. Decidi então remover esses "`'`" e pontos finais, pois dessa forma não iria existir erros no ttl.
 Também havia na `Description` da `Jaundice`, a parte `""morbus regius""`, onde tinha duas vezes no ínicio e no fim as aspas, decidi remover para não haver também erros no ttl à posteriori. 
 
-Para correr o script, basta clicar naquele ícone "Run Python File" ![alt text](image.png)
+Para correr o script, basta clicar naquele ícone "Run Python File", claro que estando no destinatário correto, no meu caso `...\RPCW2024-Normal\ex2>` ![alt text](image.png)
 
 No entanto, demora um pouco a correr.
 
